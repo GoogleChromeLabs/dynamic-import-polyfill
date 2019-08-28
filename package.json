@@ -1,6 +1,6 @@
 {
   "name": "dynamic-import-polyfill",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A polyfill for the native import() in the browser",
   "source": "src/index.js",
   "main": "dist/dynamic-import-polyfill.umd.js",
