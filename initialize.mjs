@@ -33,7 +33,7 @@ export function initialize({
   try {
     self[importFunctionName] = new Function('u', `return import(u)`);
   } catch (error) {
-    const baseURL = new URL(modulePath, location);
+    const baseURL = new URL(modulePath, document.baseURI);
     const cleanup = (script) => {
       URL.revokeObjectURL(script.src);
       script.remove();
