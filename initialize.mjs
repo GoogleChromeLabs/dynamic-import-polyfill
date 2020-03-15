@@ -30,10 +30,10 @@ export function initialize({
   modulePath = '.',
   importFunctionName = '__import__',
 } = {}) {
+  const baseURL = new URL(modulePath, document.baseURI);
   try {
-    self[importFunctionName] = new Function('u', `return import(u)`);
+    self[importFunctionName] = importId => new Function('u', 'b', 'return import(new URL(u, b))')(importId, baseURL);
   } catch (error) {
-    const baseURL = new URL(modulePath, location);
     const cleanup = (script) => {
       URL.revokeObjectURL(script.src);
       script.remove();
