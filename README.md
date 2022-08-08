@@ -1,3 +1,5 @@
+:warning: **UPDATE** :warning: this package is no longer needed (or recommended) since dynamic `import()` is now supported in every browser that support JavaScript modules.
+
 # Dynamic `import()` polyfill
 
 A fast, tiny polyfill for dynamic `import()` that works in all module-supporting browsers. The polyfill feature detects built-in `import()` support and defers to the native version if available. For browsers without module support, you can use the [module/nomodule](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/) technique to generate a fully ES5-compatible bundle.
@@ -20,7 +22,7 @@ import dynamicImportPolyfill from 'dynamic-import-polyfill';
 // This needs to be done before any dynamic imports are used.
 dynamicImportPolyfill.initialize({
   modulePath: '/public', // Defaults to '.'
-  importFunctionName: '$$import' // Defaults to '__import__'
+  importFunctionName = '$$import' // Defaults to '__import__'
 });
 ````
 
